@@ -1,4 +1,4 @@
-const CACHE_NAME = "expense2026-v1";
+const CACHE_NAME = "expense2026-v2";
 const ASSETS = ["./","./index.html","./styles.css","./app.js","./idb.js","./manifest.webmanifest","./assets/icon-192.png","./assets/icon-512.png"];
 self.addEventListener("install",(e)=>{e.waitUntil((async()=>{const c=await caches.open(CACHE_NAME);await c.addAll(ASSETS);self.skipWaiting();})())});
 self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const ks=await caches.keys();await Promise.all(ks.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)));self.clients.claim();})())});
